@@ -1,6 +1,7 @@
+
 function AboutPage() {
     console.log("About")
-    return(
+    return (
         <>
             <main>
                 <h1>About Page</h1>
