@@ -1,9 +1,0 @@
-private: true = This is because this is not the library that we want to publish to the npm registry
-ANDRES JIMENEZ
-npx next [dev] [--help]= To execute the command directly
-    •dev = To execute in dev mode
-    •--help = To see the another options
-
-package.json > scripts = To configure `dev` script 
-    •create section "scripts"
-    •create dev, add the command. Example: "dev": "next dev", to execute this: npm run dev

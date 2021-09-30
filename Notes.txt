@@ -1,0 +1,21 @@
+Next.js pre-renders components of React, it means that ours HTML will include react components
+
+npx next [dev] [build, start] [--help]= To execute the command directly
+    •dev = To execute in dev mode, bacause it will render each time to see the lastest changes
+    •--help = To see the another options
+    •build = It will generate the build/compile the production version
+    •start = It will execute the production version
+
+package.json
+    •private: true = This is because this is not the library that we want to publish to the npm registry
+
+package.json > scripts = To configure `dev` script 
+    •create section "scripts"
+    •create dev, add the command. Example: "dev": "next dev", to execute this: npm run dev
+
+The framework uses a filesystem-based router, it means that looks inside the pages folder and automatically map the routes inside the folder, i.e. 
+
+----------------------------------------------------------------
+Development vs Production Server
+----------------------------------------------------------------
+First, the component is render on the server, then the Server takes JS code and generates the components/HTML Page, it means the component is render twice, 1 from the server and 1 from the browser
