@@ -22,6 +22,7 @@ robot.txt = It is usel to tell the search engines which pages they can index
 Markdown = This is a way to create an articule
     •command/Ctrl + Shift + P -> Markdown: Open Preview to the Side = To see the preview of what you're typing
 
+lib Folder = It will contain any code that's not specific to pages or other visual component
 ----------------------------------------------------------------
 Development vs Production Server
 ----------------------------------------------------------------

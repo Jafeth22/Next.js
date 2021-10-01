@@ -1,13 +1,14 @@
-import { readFile } from 'fs/promises'
-import Head from 'next/head'
+
+import Head from 'next/head';
+import { getPost } from '../../lib/post';
+
 
 /**
  * This function runs only on SERVER side, for that reason we don't see the message on the web console, but it does on the SERVER console
  */
 export async function getStaticProps() {
     console.log('[FirstPostPage] getStaticProps()')
-    const data = await readFile('content/posts/first-post.json', 'utf8')
-    const post = JSON.parse(data);
+    const post = await getPost('first-post');
 
     return {
         props: { post }
