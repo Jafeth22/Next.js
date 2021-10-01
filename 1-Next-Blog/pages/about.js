@@ -5,7 +5,7 @@ function AboutPage() {
     return (
         <>
             <Head>
-                <title>Home</title>
+                <title>About</title>
                 <meta name="description" value="This is the Home page" />
             </Head>
             <main>

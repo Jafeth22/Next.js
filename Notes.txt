@@ -15,7 +15,11 @@ package.json > scripts = To configure `dev` script
 
 The framework uses a filesystem-based router, it means that looks inside the pages folder and automatically map the routes inside the folder, i.e. 
 
+robot.txt = It is usel to tell the search engines which pages they can index
+    •User-agent: * = All search engines
+    •Allow: / = All the pages 
 ----------------------------------------------------------------
 Development vs Production Server
 ----------------------------------------------------------------
 First, the component is render on the server, then the Server takes JS code and generates the components/HTML Page, it means the component is render twice, 1 from the server and 1 from the browser
+

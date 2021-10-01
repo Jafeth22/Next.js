@@ -12,17 +12,18 @@ a:focus, a:hover {
     color: blue;
 }
 
-ul{
-    /* Not show the • */
+/* .NavBar ul{
+    / Not show the • /
     list-style-type: none;
     padding: 0;
 }
 
-li{
+.NavBar li{
     display: inline;
 }
 
-/* To not add margin to the first element*/
-li:not(:first-child){
+/ To not add margin to the first element/
+.NavBar li:not(:first-child){
     margin: 0.5rem;
-}
+} 
+*/
