@@ -17,7 +17,11 @@ The framework uses a filesystem-based router, it means that looks inside the pag
 
 robot.txt = It is usel to tell the search engines which pages they can index
     •User-agent: * = All search engines
-    •Allow: / = All the pages 
+    •Allow: / = All the pages
+
+Markdown = This is a way to create an articule
+    •command/Ctrl + Shift + P -> Markdown: Open Preview to the Side = To see the preview of what you're typing
+
 ----------------------------------------------------------------
 Development vs Production Server
 ----------------------------------------------------------------
