@@ -27,9 +27,12 @@ function FirstPostPage({post}) {
             </Head>
             <main>
                 <h1>{post.title}</h1>
-                <p>
+                <h5>{post.date}</h5>
+                {/* dangerouslySetInnerHTML = This is to improve the security and not insert the HTML directly*/}
+                <article dangerouslySetInnerHTML={{__html: post.body}} />
+                {/* <p>
                     {post.body}
-                </p>
+                </p> */}
             </main>
         </>
     );

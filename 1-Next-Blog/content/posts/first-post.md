@@ -1,4 +1,8 @@
-# First Post
+---
+title: First Post
+date: "2021-10-01"
+---
+<!-- # First Post -->
 
 This is my first post, written in Markdown.
 
