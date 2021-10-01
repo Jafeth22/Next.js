@@ -1,9 +1,20 @@
+/* Light Theme */
+:root {
+    /* This is the way to declare a var  */
+    --background-color: white;
+    --link-color: darkred;
+    --text-color: black;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
+    /* This is the way to use a var */
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 a {
-    color: darkred;
+    color: var(--link-color);
     text-decoration: none;
 }
 
