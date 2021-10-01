@@ -25,3 +25,13 @@ export async function getSlugs() {
             .map((file) => file.slice(0, -suffix.length));
 }
 
+export async function getPosts(){
+    const slugs = await getSlugs();
+    const posts = [];
+    for (const slug of slugs) {
+        const post = await getPost(slug);
+        posts.push({slug, ...post});
+    }
+    return posts;
+}
+
