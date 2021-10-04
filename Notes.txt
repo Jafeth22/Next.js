@@ -1,8 +1,9 @@
 Next.js pre-renders components of React, it means that ours HTML will include react components
 
-npx next [dev] [build, start] [--help]= To execute the command directly
+npx next [dev] [build, start] [[someCommand] --help]= To execute the command directly
     •dev = To execute in dev mode, bacause it will render each time to see the lastest changes
     •--help = To see the another options
+        •someCommand = We can type some command followed by the help
     •build = It will generate the build/compile the production version
     •start = It will execute the production version
 
@@ -31,7 +32,18 @@ First, the component is render on the server, then the Server takes JS code and 
 ----------------------------------------------------------------
 Deployment
 ----------------------------------------------------------------
-To deploy a project like this
-    •we could use https://vercel.com/
-    •the page to sincronize with some repository page 
-    •publish the selected repository
+To deploy a project like this (with all Next.js App Features, like API Routes, Incremental Static Regeneration...)
+    •we could use https://vercel.com/ or https://www.netlify.com/
+    •Sincronize with some repository page 
+    •Configure and publish the selected repository
+
+To deploy a static web-site
+    •Local
+        •npm run build = Run build command
+        •npx next export -o folderName = To export static files
+        •npx serve folderName/ = To run a server on that folder and test the app
+    •Deploy
+        •we could use https://www.netlify.com/
+        •sites section
+        •Drag and drop folderName already created
+        •Configure and publish the project
