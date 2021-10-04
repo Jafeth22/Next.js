@@ -1,14 +1,29 @@
 import { useState } from "react";
 import DarkTheme from "./DarkTheme";
 
-function ThemeSwitch(){
-    const [darkMode, setDarkMode] = useState(false);
+function loadDarkMode(){
+    //It is undefined, because it runs first on server side
+    if(typeof localStorage === 'undefined'){
+        return false
+    }
+    const value = localStorage.getItem('darkMode')
+    return (value === null) ? false : JSON.parse(value);
+}
 
-    console.log("[ThemeSwitch] darkMode", darkMode)
+function ThemeSwitch(){
+    const [darkMode, setDarkMode] = useState(loadDarkMode);
+    console.log("[ThemeSwitch] darkMode", darkMode);
+
+    const handleClick = (event) => {
+        localStorage.setItem('darkMode', JSON.stringify(!darkMode));
+        setDarkMode(!darkMode);
+    }
+
     const text = darkMode ? 'Light Mode' : 'Dark Mode'
     return(
+        // suppressHydrationWarning = It makes warning go away, use only in special cases
         <>
-            <button onClick={() => setDarkMode(!darkMode)}>
+            <button onClick={handleClick} suppressHydrationWarning>
                 {text}
             </button>
             <style jsx>{`
