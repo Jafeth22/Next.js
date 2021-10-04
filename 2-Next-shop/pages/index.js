@@ -1,4 +1,5 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import Title from '../components/Title';
 
 export default function HomePage() {
   return (
@@ -6,8 +7,11 @@ export default function HomePage() {
       <Head>
         <title>Next Shop</title>
       </Head>
-      <main>
-        <h1>Next Shop</h1>
+      <main className="px-6 py-5" >
+        <Title>Next Shop</Title>
+        <p>
+          [TODO: Display products]
+        </p>
       </main>
     </>
   );
