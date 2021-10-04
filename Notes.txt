@@ -1,5 +1,7 @@
 Next.js pre-renders components of React, it means that ours HTML will include react components
 
+npx create-next-app project-name = To create a new Next project
+
 npx next [dev] [build, start] [[someCommand] --help]= To execute the command directly
     •dev = To execute in dev mode, bacause it will render each time to see the lastest changes
     •--help = To see the another options
