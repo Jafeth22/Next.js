@@ -28,3 +28,10 @@ Development vs Production Server
 ----------------------------------------------------------------
 First, the component is render on the server, then the Server takes JS code and generates the components/HTML Page, it means the component is render twice, 1 from the server and 1 from the browser
 
+----------------------------------------------------------------
+Deployment
+----------------------------------------------------------------
+To deploy a project like this
+    •we could use https://vercel.com/
+    •the page to sincronize with some repository page 
+    •publish the selected repository
