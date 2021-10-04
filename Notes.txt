@@ -47,3 +47,18 @@ To deploy a static web-site
         •sites section
         •Drag and drop folderName already created
         •Configure and publish the project
+
+Deploy with Linux Server using Nginx
+    •Use could use https://www.digitalocean.com/, Amazon EC2 or Google Cloud
+    •Create a project
+    •Copy the UP given on the web
+        •paste it on local console 
+        •type = ssh root@IP
+        •Also, pase it on the web brower to check it
+    •Install necessary packages
+    •Use FTP client to upload the project
+        •Upload files:
+            - /var/www/html (delete the files inside there)
+    •Drap and drop files inside the BuildedFolderName
+    
+
