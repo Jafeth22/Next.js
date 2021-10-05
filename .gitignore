@@ -5,7 +5,6 @@ node_modules
 .idea
 .cache
 .data
-api
 build
 # These was the name of the folder to deploy as static page
 dist
