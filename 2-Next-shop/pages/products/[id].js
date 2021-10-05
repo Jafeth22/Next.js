@@ -1,6 +1,5 @@
-import Head from 'next/head';
 import Image from 'next/image';
-import Title from '../../components/Title';
+import Page from '../../components/Page';
 import { ApiError } from '../../lib/api';
 import { getProducts, getProduct } from '../../lib/products';
 
@@ -22,8 +21,8 @@ export async function getStaticProps({ params: { id } }) {
             revalidate: parseInt(process.env.REVALIDATE_SECONDS)
         }
     } catch (err) {
-        if(err instanceof ApiError && err.status === 404 ){
-            return { notFound: true}
+        if (err instanceof ApiError && err.status === 404) {
+            return { notFound: true }
         }
         return err;
     }
@@ -32,27 +31,21 @@ export async function getStaticProps({ params: { id } }) {
 function ProductPage({ product }) {
     console.log('[ProductPage] render', product);
     return (
-        <>
-            <Head>
-                <title>Next Shop</title>
-            </Head>
-            <main className="px-6 py-5" >
-                <Title>{product.title}</Title>
-                <div className="flex flex-col lg:flex-row" >
-                    <div>
-                        <Image src={product.pictureUrl} alt="" width={640} height={480} />
-                    </div>
-                    <div className="flex-1 lg:ml-4">
-                        <p className="text-lg font-bold mt-2">
-                            {product.price}
-                        </p>
-                        <p className="text-sm" >
-                            {product.description}
-                        </p>
-                    </div>
+        <Page title={product.title}>
+            <div className="flex flex-col lg:flex-row" >
+                <div>
+                    <Image src={product.pictureUrl} alt="" width={640} height={480} />
                 </div>
-            </main>
-        </>
+                <div className="flex-1 lg:ml-4">
+                    <p className="text-lg font-bold mt-2">
+                        {product.price}
+                    </p>
+                    <p className="text-sm" >
+                        {product.description}
+                    </p>
+                </div>
+            </div>
+        </Page>
     );
 }
 
