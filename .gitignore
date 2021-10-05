@@ -3,7 +3,10 @@
 node_modules
 .next
 .idea
-
+.cache
+.data
+api
+build
 # These was the name of the folder to deploy as static page
 dist
 
