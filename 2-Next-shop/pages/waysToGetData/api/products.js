@@ -1,4 +1,4 @@
-import { getProducts } from '../../lib/products';
+import { getProducts } from '../../../lib/products';
 
 async function handler(req, res) {
     const products = await getProducts()

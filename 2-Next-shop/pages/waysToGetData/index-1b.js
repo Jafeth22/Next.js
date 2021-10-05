@@ -1,13 +1,17 @@
-// Fetch products on the SERVER side,
-// every time the refresh the page
+// Fetch products on the SERVER side
+// On this case, we are going to use REVALIDATE, it will make the page refresh every X seconds
 import Head from 'next/head';
 import Title from '../components/Title';
 import { getProducts } from '../lib/products';
 
-export async function getServerSideProps() {
-  console.log('[HomePage] getServerSideProps()');
+// Incremental Static Generation
+export async function getStaticProps() {
+  console.log('[HomePage] getStaticProps()');
   const products = await getProducts();
-  return { props: { products } }
+  return { 
+    props: { products },
+    revalidate: 30 //On this case, it will refresh every 30s
+  }
 }
 
 export default function HomePage({ products }) {
