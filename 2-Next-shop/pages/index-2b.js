@@ -1,6 +1,8 @@
 // Fetch products on CLIENT side
 // Compare againt SERVER side, it is better because it fetches the latest products, but it will show the source of the products,
 // case where SERVER side pre-load the data and just will render the data already processed, but in case there are changes, these won't be reflected, but it will do on CLIENT side
+
+// From an INTERNAL API
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import Title from '../components/Title';
@@ -10,7 +12,11 @@ export default function HomePage() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    getProducts().then(setProducts);
+    (async () => {
+      const response = await fetch('/api/products');
+      const products = await response.json();
+      setProducts(products);
+    })();
   }, []);
 
   console.log('HomePage', products);
