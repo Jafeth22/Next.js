@@ -1,6 +1,7 @@
-import {fetchJson} from './api'
+import { fetchJson } from './api'
 
-const CMS_URL = 'http://localhost:1337'
+// const CMS_URL = process.env.CMS_URL;
+const { CMS_URL } = process.env;
 
 export async function getProducts() {
     const products = await fetchJson(`${CMS_URL}/products`);
