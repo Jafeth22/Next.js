@@ -1,10 +1,11 @@
-// Fetch products on the SERVER side
+// Fetch products on the SERVER side,
+// every time the refresh the page
 import Head from 'next/head';
 import Title from '../components/Title';
 import { getProducts } from '../lib/products';
 
-export async function getStaticProps() {
-  console.log('[HomePage] getStaticProps()');
+export async function getServerSideProps() {
+  console.log('[HomePage] getServerSideProps()');
   const products = await getProducts();
   return { props: { products } }
 }

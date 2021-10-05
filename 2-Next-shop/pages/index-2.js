@@ -1,4 +1,6 @@
 // Fetch products on CLIENT side
+// Compare againt SERVER side, it is better because it fetches the latest products, but it will show the source of the products,
+// case where SERVER side pre-load the data and just will render the data already processed, but in case there are changes, these won't be reflected, but it will do on CLIENT side
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import Title from '../components/Title';
