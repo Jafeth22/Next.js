@@ -1,12 +1,16 @@
+// Fetch products on CLIENT side
 import Head from 'next/head';
+import { useEffect, useState } from 'react';
 import Title from '../components/Title';
-
-const products = [
-  {id: 1, title: 'Product 1'},
-  {id: 2, title: 'Product 2'}
-];
+import { getProducts } from '../lib/products';
 
 export default function HomePage() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    getProducts().then(setProducts);
+  }, []);
+
   console.log('HomePage', products);
   return (
     <>

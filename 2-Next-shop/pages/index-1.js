@@ -1,12 +1,15 @@
+// Fetch products on the SERVER side
 import Head from 'next/head';
 import Title from '../components/Title';
+import { getProducts } from '../lib/products';
 
-const products = [
-  {id: 1, title: 'Product 1'},
-  {id: 2, title: 'Product 2'}
-];
+export async function getStaticProps() {
+  console.log('[HomePage] getStaticProps()');
+  const products = await getProducts();
+  return { props: { products } }
+}
 
-export default function HomePage() {
+export default function HomePage({ products }) {
   console.log('HomePage', products);
   return (
     <>
