@@ -1,8 +1,8 @@
 // Fetch products on the SERVER side,
 // every time the refresh the page
 import Head from 'next/head';
-import Title from '../components/Title';
-import { getProducts } from '../lib/products';
+import Title from '../../components/Title';
+import { getProducts } from '../../lib/products';
 
 // getServerSideProps
 export async function getServerSideProps() {

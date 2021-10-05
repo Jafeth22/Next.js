@@ -5,8 +5,8 @@
 // From an EXTERNAL API
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import Title from '../components/Title';
-import { getProducts } from '../lib/products';
+import Title from '../../components/Title';
+import { getProducts } from '../../lib/products';
 
 export default function HomePage() {
   const [products, setProducts] = useState([]);

@@ -1,8 +1,8 @@
 // Fetch products on the SERVER side
 // On this case, we are going to use REVALIDATE, it will make the page refresh every X seconds
 import Head from 'next/head';
-import Title from '../components/Title';
-import { getProducts } from '../lib/products';
+import Title from '../../components/Title';
+import { getProducts } from '../../lib/products';
 
 // Incremental Static Generation
 export async function getStaticProps() {

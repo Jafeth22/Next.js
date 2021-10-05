@@ -8,17 +8,20 @@ export async function getStaticPaths() {
         paths: products.map((product) => ({
             params: { id: product.id.toString() }
         })),
-        fallback: false //This in case any path match, it won't show 404 page'
+        fallback: 'blocking' //The response is blocked until the new page is ready
     }
 }
 
 export async function getStaticProps({ params: { id } }) {
     const product = await getProduct(id)
-    return { props: { product } }
+    return { 
+        props: { product },
+        revalidate: 30
+    }
 }
 
 function ProductPage({ product }) {
-    console.log('ProductPage', product);
+    console.log('[ProductPage] render', product);
     return (
         <>
             <Head>
