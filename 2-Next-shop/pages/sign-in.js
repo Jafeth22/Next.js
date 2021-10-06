@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { useMutation, useQueryClient } from "react-query";
 import { useRouter } from "next/router";
 import Page from "../components/Page";
 import Input from "../components/Input";
 import Field from "../components/Field";
 import Button from "../components/Button";
-import { fetchJson } from "../lib/api";
+import { useSignIn } from "../hooks/user"
 
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -15,34 +14,14 @@ function SingInPage() {
     const router = useRouter();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    /**
-     * useQueryClient = It returns the queryClient (in this case is our custom useUser hook), it can be access from any component
-     */
-    const queryClient = useQueryClient();
-    const mutation = useMutation(() => fetchJson('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-    }));
+    const { signIn, signInError, signInLoading } = useSignIn();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         await sleep(2000);
-        try {
-            const user = await mutation.mutateAsync();
-            // Here we write the value directly into the cache, after we sign-in
-            queryClient.setQueriesData('user', user);
-            // This code is replace in the mutation function
-            // const response = await fetchJson('/api/login', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify({ email, password })
-            // });
-            console.log("Sign in: ", user)
+        const valid = await signIn(email, password);
+        if (valid) {
             router.push('/');
-        } catch (err) {
-            // mutation.isError will be true
         }
     }
 
@@ -65,12 +44,12 @@ function SingInPage() {
                         onChange={(event) => setPassword(event.target.value)}
                     />
                 </Field>
-                {mutation.isError && (
+                {signInError && (
                     <p className="text-red-700">
                         Invalid Credentials
                     </p>
                 )}
-                {mutation.isLoading ?
+                {signInLoading ?
                     (<p>Loading...</p>)
                     : (
                         <Button type="submit">

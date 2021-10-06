@@ -1,5 +1,30 @@
-import { useQuery } from 'react-query'
+import { useMutation, useQuery, useQueryClient } from 'react-query'
 import { fetchJson } from '../lib/api';
+
+export function useSignIn() {
+    // useQueryClient = It returns the queryClient (in this case is our custom useUser hook), it can be access from any component
+    const queryClient = useQueryClient();
+    const mutation = useMutation(({ email, password }) =>
+        fetchJson('/api/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        }));
+    return {
+        signIn: async (email, password) => {
+            try {
+                const user = await mutation.mutateAsync({ email, password });
+                // Here we write the value directly into the cache, after we sign-in
+                queryClient.setQueryData('user', user);
+                return true;
+            } catch (error) {
+                return false;
+            }
+        },
+        signInError: mutation.isError,
+        signInLoading: mutation.isLoading
+    }
+}
 
 export function useUser() {
     /**
