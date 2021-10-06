@@ -67,4 +67,9 @@ Deploy with Linux Server using Nginx
             - /var/www/html (delete the files inside there)
     •Drap and drop files inside the BuildedFolderName
     
-
+----------------------------------------------------------------
+React Query
+----------------------------------------------------------------
+•useQuery hook = It's to fetch data straight away and usually cache 
+                data as well, also it's used tipically with GET request, This hook is necessary to be installed if you want to use it (see REEDME file inside 2nd Folder/Project)
+•useMutation hook = Here, we define the request in a moment, then, we'll execute, it is mostly used with POST, PUT or DELETE requests

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useMutation, useQueryClient } from "react-query";
 import { useRouter } from "next/router";
 import Page from "../components/Page";
 import Input from "../components/Input";
@@ -14,23 +15,34 @@ function SingInPage() {
     const router = useRouter();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [status, setStatus] = useState({ loading: false, error: false });
+
+    /**
+     * useQueryClient = It returns the queryClient (in this case is our custom useUser hook), it can be access from any component
+     */
+    const queryClient = useQueryClient();
+    const mutation = useMutation(() => fetchJson('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+    }));
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        setStatus({ loading: true, error: false });
         await sleep(2000);
         try {
-            const response = await fetchJson('/api/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password })
-            });
-            setStatus({ loading: false, error: false });
-            // console.log("Sign in: ", response)
+            const user = await mutation.mutateAsync();
+            // Here we write the value directly into the cache, after we sign-in
+            queryClient.setQueriesData('user', user);
+            // This code is replace in the mutation function
+            // const response = await fetchJson('/api/login', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({ email, password })
+            // });
+            console.log("Sign in: ", user)
             router.push('/');
         } catch (err) {
-            setStatus({ loading: false, error: true });
+            // mutation.isError will be true
         }
     }
 
@@ -53,12 +65,12 @@ function SingInPage() {
                         onChange={(event) => setPassword(event.target.value)}
                     />
                 </Field>
-                {status.error && (
+                {mutation.isError && (
                     <p className="text-red-700">
                         Invalid Credentials
                     </p>
                 )}
-                {status.loading ?
+                {mutation.isLoading ?
                     (<p>Loading...</p>)
                     : (
                         <Button type="submit">
