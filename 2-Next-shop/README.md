@@ -5,6 +5,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 npm install --save-dev tailwindcss postcss autoprefixer
 npx npx tailwindcss init -p init -p
 npm install cookie
+npm install react-query
 ```
 
 ## Getting Started
