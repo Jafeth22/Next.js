@@ -4,6 +4,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ```bash
 npm install --save-dev tailwindcss postcss autoprefixer
 npx npx tailwindcss init -p init -p
+npm install cookie
 ```
 
 ## Getting Started
