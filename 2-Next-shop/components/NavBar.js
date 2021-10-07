@@ -1,10 +1,10 @@
 // import { useEffect, useState } from 'react';
 import Link from 'next/link'
-import { fetchJson } from '../lib/api';
-import { useUser } from '../hooks/user';
+import { useUser, useSignOut } from '../hooks/user';
 
 function NavBar() {
     const user = useUser();
+    const signOut = useSignOut();
 
     // All this is replaced by useQuery
     // const [user, setUser] = useState();
@@ -18,11 +18,6 @@ function NavBar() {
     //         }
     //     })();
     // }, []);
-
-    const handleSignOut = async () => {
-        await fetchJson('/api/logout');
-        // setUser(undefined);
-    }
 
     console.log('[NavBar] user', user);
     return (
@@ -40,7 +35,7 @@ function NavBar() {
                     <>
                         <li>{user.name}</li>
                         <li>
-                            <button onClick={handleSignOut} >
+                            <button onClick={signOut} >
                                 Sign Out
                             </button>
                         </li>
