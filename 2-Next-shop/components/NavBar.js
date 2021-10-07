@@ -14,12 +14,12 @@ function NavBar() {
     //             const user = await fetchJson('/api/user')
     //             setUser(user);
     //         } catch (error) {
-                
+
     //         }
     //     })();
     // }, []);
 
-    console.log('[NavBar] user', user);
+    // console.log('[NavBar] user', user);
     return (
         <nav className="px-2 py-1 text-sm" >
             <ul className="flex gap-2" >
@@ -33,6 +33,11 @@ function NavBar() {
                 <li role="separator" className="flex-1" />
                 {user ? (
                     <>
+                        <li className="">
+                            <Link href="/cart">
+                                <a>Cart</a>
+                            </Link>
+                        </li>
                         <li>{user.name}</li>
                         <li>
                             <button onClick={signOut} >
