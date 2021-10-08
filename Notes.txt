@@ -1,6 +1,7 @@
 Next.js pre-renders components of React, it means that ours HTML will include react components
 
-npx create-next-app project-name = To create a new Next project
+CMS = Content Management System, for this project is strapi
+    •npx create-next-app project-name = To create a new Next project
 
 npx next [dev] [build, start] [[someCommand] --help]= To execute the command directly
     •dev = To execute in dev mode, bacause it will render each time to see the lastest changes
@@ -30,6 +31,10 @@ lib Folder = It will contain any code that's not specific to pages or other visu
 Global Variables = These settings should only be used on local machine, should not be included on version control
     .env = This is global file, where you can add global variables
     .env.local = This works when we are working local, overriding .env file, that is for production
+
+tailwindcss = It's a CSS framework
+    •npx tailwindcss init -p = init will initialize the configuration files, -p initialize the PostCSS file
+
 ----------------------------------------------------------------
 Development vs Production Server
 ----------------------------------------------------------------
