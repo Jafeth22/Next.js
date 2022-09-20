@@ -1,0 +1,35 @@
+File-Based-Routing
+	Routing works with files and not on the Route Paths as in React
+
+API folder
+    It runs on server side and not on client side
+
+Nested routes
+    When you create a file or folder, the NextJs Framework recognizes it as a route
+
+Dynamic routes
+    To create a dynamic route file, we should to add [] to the name, like this: [id].js
+
+Slug (Long) Routes
+    To create a long dynamic route file, inside the same folder where is located the
+    dynamic route file, we should something like this: [...slug].js, this mean that you can
+    have as many params as you want in the URL
+    Example:
+            [...slug].js
+            [id].js
+        So, when we add it, it'll be after the ID of the dynamic route
+    Example:    On this case, it 
+                course/nextjs-with-react/learn/lecture/32802470#content
+
+// ----------------------------------------------------------------
+PRE RENDERING AND DATA FETCHING
+    SSG: Static Site Generation
+    ISG: Incremental Site Generation
+    SSR: Server Side Rendering
+
+In Next, the pages on website is first generated then shown to the user
+Data fetch from server -> send to component -> component function runs
+
+SSG (getStaticProps)
+    Statically generate the pages and pre-render the content onto that page and we won't see
+    any loading icon on the web
