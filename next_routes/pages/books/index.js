@@ -1,5 +1,5 @@
-import React from 'react'
-import { books } from '../../data/utils'
+import React from 'react';
+import { books } from '../../data/utils';
 import Link from 'next/link';
 
 export default function BooksHomePage() {
