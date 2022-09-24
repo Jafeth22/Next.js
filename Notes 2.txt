@@ -33,3 +33,13 @@ Data fetch from server -> send to component -> component function runs
 SSG (getStaticProps)
     Statically generate the pages and pre-render the content onto that page and we won't see
     any loading icon on the web
+
+ISG (getStaticProps, with a time param)
+    It will bring the data after Xseconds, that means it will load the entire page with the new data.
+
+SSR (getServerSideProps)
+    getServerSideProps = It is a type of function which runs on every new incoming request.
+    Every new request from the client to the DB, it will generate from the server and
+    pre-render the page to the client. It works on server side 
+
+SSR and SSG/ISG, they cannot be used in the same page or component.
