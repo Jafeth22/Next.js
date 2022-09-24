@@ -3,6 +3,15 @@ import { useRouter } from 'next/router'
 import { getBooks, getBooksFromId } from '../../utils/api-ultils';
 import Link from 'next/link';
 
+export async function getStaticPaths() {
+    const books = await getBooks();
+    const paths = books.map((book) => ({params: { id: book.id }}));
+    return {
+        paths,
+        fallback: false,
+    };
+}
+
 /**
  * getStaticProps has default the context object inside it,
  * and it has all the features of this function
@@ -12,15 +21,6 @@ export async function getStaticProps({params}) {
     return {
         props: { book }
     }
-}
-
-export async function getStaticPaths() {
-    const books = await getBooks();
-    const paths = books.map((book) => ({params: { id: book.id }}));
-    return {
-        paths,
-        fallback: false,
-    };
 }
 
 export default function Books({book}){

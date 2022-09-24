@@ -4,15 +4,17 @@ import Link from 'next/link';
 /**
  * This runs only on Server Side, but it is static because
  * It gets the data from server, next build the data and then,
- * it renders the informacio to the browser.
+ * it renders the informacion to the browser.
  * 
- * This fucntion runs during the build time and it generates
- * the pages that we want
+ * This function runs during the build time and not after that.
+ * revalidate = It makes call to the server every 10sec (for this case),
+ * it makes this an Incremental Static Generation (ISG)
  */
 export async function getStaticProps() {
     const books = await getBooks();
     return {
-        props: { books }
+        props: { books },
+        revalidate: 10,
     }
 }
 
@@ -21,7 +23,7 @@ export default function BooksHome ({ books }) {
     return (<div>
         <ul>
             {books.map((book) => (
-                <li>
+                <li key={book.id}>
                     <div>
                         <h1>{book.name}</h1>
                         <p>{book.description}</p>
