@@ -8,7 +8,8 @@ export async function getStaticPaths() {
     const paths = books.map((book) => ({params: { id: book.id }}));
     return {
         paths,
-        fallback: false,
+        fallback: false, // false = This is when the page doesn't find the route, it will return 404
+                        // true = It will try to find the page
     };
 }
 
