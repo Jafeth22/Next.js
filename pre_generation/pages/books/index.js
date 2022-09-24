@@ -7,8 +7,10 @@ import Link from 'next/link';
  * it renders the informacion to the browser.
  * 
  * This function runs during the build time and not after that.
+ * 
  * revalidate = It makes call to the server every 10sec (for this case),
- * it makes this an Incremental Static Generation (ISG)
+ * it makes this an Incremental Static Generation (ISG), it means after
+ * X time of second, if you refresh the page, it will bring the new informacion.
  */
 export async function getStaticProps() {
     const books = await getBooks();
