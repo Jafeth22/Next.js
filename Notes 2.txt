@@ -43,3 +43,8 @@ SSR (getServerSideProps)
     pre-render the page to the client. It works on server side 
 
 SSR and SSG/ISG, they cannot be used in the same page or component.
+// ----------------------------------------------------------------
+API Routing
+    It is used to build the APIs, it could be create inside a folder, this folder
+    won't be accessible from the client side, because it will run from the server side
+    Every file inside api folder will run on Node.js environment, it means that is the BE
